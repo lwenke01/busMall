@@ -13,29 +13,25 @@ var productInsert1 = document.getElementById('productInsert1');
 var productInsert2 = document.getElementById('productInsert2');
 var productInsert3 = document.getElementById('productInsert3');
 
+var shark = new Product('shark', 'img/shark.png');
+var pen = new Product('pen','img/pen.jpg');
+var banana = new Product('banana','img/banana.jpg');
+var bag = new Product('bag','img/bag.jpg');
+var boots = new Product('boots','img/boots.jpg');
+var cthulhu = new Product('cthulhu','img/cthulhu.jpg');
+var dragon = new Product('dragon','img/dragon.jpg');
+var sweep = new Product('sweep','img/sweep.png');
+var scissors = new Product('scissors','img/scissors.jpg');
+var unicorn = new Product('unicorn','img/unicorn.jpg');
+var usb = new Product('usb','img/usb.gif');
+var water = new Product('water-can','img/water-can.jpg');
+var wine = new Product('wine-glass','img/wine-glass.jpg');
 
+var nameArray = [shark, pen, banana, bag, boots, cthulhu, dragon, sweep, scissors, unicorn, usb, water, wine];
 
-
-
-    var shark = new Product('shark', 'img/shark.png');
-    var pen = new Product('pen','img/pen.jpg');
-    var banana = new Product('banana','img/banana.jpg');
-    var bag = new Product('bag','img/bag.jpg');
-    var boots = new Product('boots','img/boots.jpg');
-    var cthulhu = new Product('cthulhu','img/cthulhu.jpg');
-    var dragon = new Product('dragon','img/dragon.jpg');
-    var sweep = new Product('sweep','img/sweep.png');
-    var scissors = new Product('scissors','img/scissors.jpg');
-    var unicorn = new Product('unicorn','img/unicorn.jpg');
-    var usb = new Product('usb','img/usb.gif');
-    var water = new Product('water-can','img/water-can.jpg');
-    var wine = new Product('wine-glass','img/wine-glass.jpg');
-
-    var nameArray = [shark, pen, banana, bag, boots, cthulhu, dragon, sweep, scissors, unicorn, usb, water, wine];
-
-    productInsert1.addEventListener('click', handleClickOn);
-    productInsert2.addEventListener('click', handleClickOn);
-    productInsert3.addEventListener('click', handleClickOn);
+productInsert1.addEventListener('click', handleClickOn);
+productInsert2.addEventListener('click', handleClickOn);
+productInsert3.addEventListener('click', handleClickOn);
 
 function random() {
   var img1 = document.getElementById('productInsert1');
