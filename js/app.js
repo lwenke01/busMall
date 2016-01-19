@@ -14,7 +14,7 @@ var productInsert2 = document.getElementById('productInsert2');
 var productInsert3 = document.getElementById('productInsert3');
 
 var shark = new Product('shark', 'img/shark.png');
-var pen = new Product('pen','img/pen.png');
+var pen = new Product('pen','img/pens.png');
 var banana = new Product('banana','img/banana.png');
 var bag = new Product('bag','img/bags.png');
 var boots = new Product('boots','img/boots.png');
