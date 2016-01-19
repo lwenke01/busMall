@@ -15,17 +15,18 @@ var productInsert3 = document.getElementById('productInsert3');
 
 var shark = new Product('shark', 'img/shark.png');
 var pen = new Product('pen','img/pen.jpg');
-var banana = new Product('banana','img/banana.jpg');
-var bag = new Product('bag','img/bag.jpg');
+var banana = new Product('banana','img/banana.png');
+var bag = new Product('bag','img/bags.png');
 var boots = new Product('boots','img/boots.jpg');
-var cthulhu = new Product('cthulhu','img/cthulhu.jpg');
-var dragon = new Product('dragon','img/dragon.jpg');
-var sweep = new Product('sweep','img/sweep.png');
-var scissors = new Product('scissors','img/scissors.jpg');
-var unicorn = new Product('unicorn','img/unicorn.jpg');
-var usb = new Product('usb','img/usb.gif');
-var water = new Product('water-can','img/water-can.jpg');
-var wine = new Product('wine-glass','img/wine-glass.jpg');
+var cthulhu = new Product('cthulhu','img/monster.png');
+var dragon = new Product('dragon','img/dragon.png');
+var sweep = new Product('sweep','img/sweep1.png');
+var scissors = new Product('scissors','img/pizza.png');
+var unicorn = new Product('unicorn','img/unicorn.png');
+var usb = new Product('usb','img/usb.png');
+var water = new Product('water-can','img/water.png');
+var wine = new Product('wine-glass','img/wine.png');
+var wine = new Product('chair','img/chair.png');
 
 var nameArray = [shark, pen, banana, bag, boots, cthulhu, dragon, sweep, scissors, unicorn, usb, water, wine];
 
