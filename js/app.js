@@ -1,74 +1,78 @@
+"use strict"
 
-//IDs to map to HTML images
-var product1 = document.getElementById('productInsert1');
-var product2 = document.getElementById('productInsert2');
-var product3 = document.getElementById('productInsert3');
-
-
-
-first.addEventListener('click', handleClickOnFirst);
-second.addEventListener('click', handleClickOnSecond);
-third.addEventListener('click', handleClickOnThird);
-
-// var click1 = 0;
-// var click2 = 0;
-// var click3 = 0;
-// var click4 = 0;
-// var click5 = 0;
-// var click6 = 0;
-// var click7 = 0;
-// var click8 = 0;
-// var click9 = 0;
-// var click10 = 0;
-// var click11 = 0;
-// var click12 = 0;
-// var click13 = 0;
-// var click14 = 0;
-// var click15 = 0;
-
-
-
-// var images ['img/shark.png','img/banana.jpg','img/bag.jpg','img/boots.jpg','img/chair.jpg', 'img/cthilhu.jpg','img/dragon.jpg', 'img/pen.jpg','img/scissors.jpg',]
-
-function Product (name, src) {
+function Product(name, fileLoc) {
   this.name = name;
-  this.src = 'img/' + src;
+  this.fileLoc = fileLoc;
 }
-
 
 function generateRandomImage() {
-  return +(Math.floor((Math.random()) * 3);
+  return Math.floor((Math.random() * nameArray.length));
+}
+//IDs to map to HTML images
+var productInsert1 = document.getElementById('productInsert1');
+var productInsert2 = document.getElementById('productInsert2');
+var productInsert3 = document.getElementById('productInsert3');
 
-    };
 
-    var shark = new Product('shark', 'shark.png');
-    var pen = new Product('pen','pen.jpg');
-    var banana = new Product('banana','banana.jpg');
-    var bag = new Product('bag','bag.jpg');
-    var boots = new Product('boots','boots.jpg');
-    var cthulhu = new Product('cthulhu','cthulhu.jpg');
-    var dragon = new Product('dragon','dragon.jpg');
-    var sweep = new Product('sweep','sweep.png');
-    var scissors = new Product('scissors','scissors.jpg');
-    var unicorn = new Product('unicorn','unicorn.jpg');
-    var usb = new Product('usb','usb.gif');
-    var water = new Product('water-can','water-can.jpg');
-    var wine = new Product('wine-glass','wine-glass.jpg');
 
-function handleClickOnFirst() {
-  click1++;
-  first.textContent = 'First was clicked ' + firstClicks + ' times';
-  if (firstClicks % 3 === 0) {
-    first.textContent = 'I AM DIVISIBLE BY 3!';
+
+
+    var shark = new Product('shark', 'img/shark.png');
+    var pen = new Product('pen','img/pen.jpg');
+    var banana = new Product('banana','img/banana.jpg');
+    var bag = new Product('bag','img/bag.jpg');
+    var boots = new Product('boots','img/boots.jpg');
+    var cthulhu = new Product('cthulhu','img/cthulhu.jpg');
+    var dragon = new Product('dragon','img/dragon.jpg');
+    var sweep = new Product('sweep','img/sweep.png');
+    var scissors = new Product('scissors','img/scissors.jpg');
+    var unicorn = new Product('unicorn','img/unicorn.jpg');
+    var usb = new Product('usb','img/usb.gif');
+    var water = new Product('water-can','img/water-can.jpg');
+    var wine = new Product('wine-glass','img/wine-glass.jpg');
+
+    var nameArray = [shark, pen, banana, bag, boots, cthulhu, dragon, sweep, scissors, unicorn, usb, water, wine];
+
+    productInsert1.addEventListener('click', handleClickOn);
+    productInsert2.addEventListener('click', handleClickOn);
+    productInsert3.addEventListener('click', handleClickOn);
+
+function random() {
+  var img1 = document.getElementById('productInsert1');
+  var rand1 = generateRandomImage();
+  img1.src = nameArray[rand1].fileLoc;
+
+  var img2 = document.getElementById('productInsert2');
+  var rand2 = generateRandomImage();
+  while(rand1 === rand2) {
+    rand2 = generateRandomImage();
   }
+  img2.src = nameArray[rand2].fileLoc;
+
+  var img3 = document.getElementById('productInsert3')
+  var rand3 = generateRandomImage();
+  while(rand1 === rand3 || rand2 === rand3) {
+    rand3 = generateRandomImage();
+  }
+  img3.src = nameArray[rand3].fileLoc;
+}
+random();
+function handleClickOn() {
+  random();
 }
 
-function handleClickOnSecond() {
-  secondClicks += 1;
-  second.textContent = 'Second was clicked ' + secondClicks + ' times';
-}
+//insert in html
+      // var h2 = document.createElement('h2');
+      // var h2El = document.createElement('h2');
+      // h2.textContent = this.name;
+      // h2El.appendChild(h2);
+      // for(var i = 0; i < timeOfDay.length; i++) {
+      //   var tdEl = document.createElement('td');
+      //   tdEl.textContent = (this.hourlyBeans[i] + this.hourlyCups[i] / 20).toFixed(2);
+      //   trEl.appendChild(tdEl);
+      // }
 
-function handleClickOnThird() {
-  thirdClicks += 1;
-  third.textContent = 'Third was clicked ' + thirdClicks + ' times';
-}
+      // function changeAllImgs(event) {
+      //   console.log(event);
+      //
+      // }
