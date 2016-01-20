@@ -131,6 +131,7 @@ checkForButton();
 
 
 //graph
+
 var label = ['shark', 'chair', 'pen', 'banana', 'bag', 'boots', 'cthulhu', 'dragon', 'sweep', 'scissors', 'unicorn', 'usb', 'water', 'wine'];
 var percentageChart = [];
 function dataset1() {

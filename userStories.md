@@ -19,7 +19,6 @@
  - I do not want the results to be shown to the user until there has been a total of 15 selections made.
 
 //focus group//
- - I want a nice, clean, user-friendly site (You are also responsible for the look and feel of the app, so don't forget a custom font, color palette, layout with semantic HTML (and maybe a Skeleton or flexbox approach to layout) and so on.)
- - I want to be informed on the products
+ - I want a clear explanation of the purposes of this study
  - I want clear instructions on the analysis performed.
  - I want to see my results visually
