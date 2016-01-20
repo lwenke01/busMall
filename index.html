@@ -3,34 +3,47 @@
   <head>
     <meta charset="utf-8">
     <title>BusMall</title>
-    <link href='https://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
+    <!-- <link href='https://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'> -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/skeleton.css">
     <link rel="stylesheet" href="css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
     <script src="js/chart.js"></script>
   </head>
+
   <body>
     <section class ="fgHeader">
       <header>
         <img src="img/busmalllogo.png" class = "logo">
-        <h1>BusMall Market Analysis</h1>
+        <h1>BusMall Market Research Study</h1>
       </header>
-  <h2>About</h2>
+      <h2>Welcome, Focus Group Participants! </h2>
+      <h3>Please read the instructions below before starting the survey</h3>
     </section>
-    <div class = "pics">
-      <section class = "productInsert1">
-      <img id = "productInsert1">
+    <!-- IMAGES -->
+    <section class = "pics">
+      <article class = "productInsert1">
+        <img id = "productInsert1">
+      </article>
+      <article class = "productInsert2">
+        <img id = "productInsert2">
+      </article>
+      <article class = "productInsert3">
+        <img id = "productInsert3">
+      </article>
     </section>
-      <section class = "productInsert2">
-      <img id = "productInsert2">
-    </section>
-      <section class = "productInsert3">
-      <img id = "productInsert3">
-    </section>
+    <!--  BUTTON-->
+    <section class = "results">
       <button id ="button" class = "button">Click Here for Results</button>
-        <section id ="showResult"></section>
-
-
-
     </section>
-  <script src="js/app.js"></script>
+    <!-- CHART -->
+    <section class="chart1">
+      <article class="title">
+        <canvas id="userDataTable" width="300" height="300"></canvas>
+      </article>
+    </section>
+
+    <script src="js/app.js"></script>
+
   </body>
 </html>
