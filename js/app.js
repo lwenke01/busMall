@@ -7,15 +7,9 @@ function Product(name, fileLoc) {
   this.timesDisplayed = 0;
   this.percentClicked = 0;
   this.percentClicked = function() {
-percentClicked = (timesClicked / timesDisplayed).toFixed(2) * 100;
-  // this.timesDisplayed = 0;
-
+  this.percentClicked = (timesClicked / timesDisplayed).toFixed(2) * 100;
   }
 }
-
-// totalClicks = 0;
-
-//IDs to map to HTML images
 
 var shark = new Product('shark', 'img/shark.png');
 var pen = new Product('pen','img/pens.png');
@@ -34,12 +28,7 @@ var chair = new Product('chair','img/chair.png');
 
 var nameArray = [shark, chair, pen, banana, bag, boots, cthulhu, dragon, sweep, scissors, unicorn, usb, water, wine];
 
-// var img1 = 0;
-// var img2 = 0;
-// var img3 = 0;
-// var productInsert1 = document.getElementById('productInsert1');
-// var productInsert2 = document.getElementById('productInsert2');
-// var productInsert3 = document.getElementById('productInsert3');
+
 var img1 = document.getElementById('productInsert1');
 var img2 = document.getElementById('productInsert2');
 var img3 = document.getElementById('productInsert3')
@@ -51,6 +40,7 @@ var rand1;
 var rand2;
 var rand3;
 
+//generate a random image from array
 function generateRandomImage() {
   return Math.floor((Math.random() * nameArray.length));
 }
@@ -75,11 +65,11 @@ function random() {
   img3.src = nameArray[rand3].fileLoc;
     console.log(rand3 + "This is rand3");
  }
-
+//call the random image
 random();
 
 
-//event contructors
+//event handlers to create event for when image is clicked on
 function handleClickOnOne(event) {
   clickOne += 1;
   console.log(event);
@@ -87,83 +77,74 @@ function handleClickOnOne(event) {
   nameArray[rand1].timesClicked += 1;
   random();
   checkForButton();
-  // nameArray[productInsert1].timesDisplayed += 1;
-
+  makeClickArray();
 }
-
 function handleClickOnTwo(event) {
   clickTwo += 1;
   console.log(event);
   totalClicks += 1;
   nameArray[rand2].timesClicked += 1;
   random();
-    checkForButton();
-    // nameArray[productInsert1].timesDisplayed += 1;
+  checkForButton();
+  makeClickArray();
 }
-
 function handleClickOnThree(event) {
   clickThree += 1;
   totalClicks += 1;
   nameArray[rand3].timesClicked += 1;
   random();
-    checkForButton();
-  // console.log(event);
-    // nameArray[productInsert1].timesDisplayed += 1;
+  checkForButton();
+  makeClickArray();
 }
-    //event listeners
-    productInsert1.addEventListener('click', handleClickOnOne);
-    productInsert2.addEventListener('click', handleClickOnTwo);
-    productInsert3.addEventListener('click', handleClickOnThree);
+//event listeners for event handlers
+  productInsert1.addEventListener('click', handleClickOnOne);
+  productInsert2.addEventListener('click', handleClickOnTwo);
+  productInsert3.addEventListener('click', handleClickOnThree);
 
-
-
-//all clicks
-
-
-
-function checkForButton() {
-  if(totalClicks < nameArray.length) {
+//check for button after 15 clicks
+  function checkForButton() {
+    if(totalClicks < nameArray.length) {
     document.getElementById('button').style.visibility = 'hidden';
   }
   else {
     document.getElementById('button').style.visibility = 'visible';
   }
-
 }
-
-
-
-button.addEventListener('click', handleButtonClick);
-
+//add event listener for button
+  button.addEventListener('click', handleButtonClick);
+//handler for button and results
 function handleButtonClick(event) {
+
   button.textContent = 'Here are the results';
   var showResult = document.getElementById('showResult');
-  showResult.textContent = '';
+  showResult.textContent = productResults;
+  //create elements for results to show
   var displayList = document.createElement('ul');
     for (var i = 0; i < nameArray.length; i++) {
       nameArray[i].percentClicked();
       var results = document.createElement('li');
-      productResults.textContent = nameArray[i].name + ' has receieved ' + nameArrays[i].timesClicked + ' clicks after being displayed ' + nameArrays[i].timesDisplayed + ' times, for a ' + nameArrays[i].percentClicked + '% selection rate';
+      productResults.textContent = nameArray[i].name + ' has receieved ' + nameArray[i].timesClicked + ' clicks after being displayed ' + nameArray[i].timesDisplayed + ' times, for a ' + nameArray[i].percentClicked + '% selection rate';
       displayList.appendChild(results);
     }
     resultsDisplay.appendChild(displayList);
   }
 
 checkForButton();
+handleButtonClick();
 
-alert('Hello, Please follow the instructions carefully before starting the survey');
-//insert in html
-      // var h2 = document.createElement('h2');
-      // var h2El = document.createElement('h2');
-      // h2.textContent = this.name;
-      // h2El.appendChild(h2);
-      // for(var i = 0; i < timeOfDay.length; i++) {
-      //   var tdEl = document.createElement('td');
-      //   tdEl.textContent = (this.hourlyBeans[i] + this.hourlyCups[i] / 20).toFixed(2);
-      //   trEl.appendChild(tdEl);
-      // }
+//graph
+function renderDataTable() {
+  var getTableEl = document.getElementById('userDataTable');
+  getTableEl.innerHTML = '<h2>Here is the data</h2>';
+}
+var clicksArrayForChart = [];
 
-      // function changeAllImgs(event) {
-      //   console.log(event);
-      //
-      // }
+function makeClickArray() {
+  clicksArrayForChart = [];
+  for(var i = 0; i < nameArray.length; i++) {
+    clicksArrayForChart.push(nameArray[i].totalClicks);
+  }
+
+}
+
+// alert('Hello, Please follow the instructions carefully before starting the survey');
