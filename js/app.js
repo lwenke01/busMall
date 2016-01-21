@@ -1,6 +1,5 @@
-"use strict"
-//create object constructor for products, and Global allClicks counter
-// var
+'use strict'
+
 var productArray = []
 function Product(name, fileLoc) {
   this.name = name;
@@ -12,7 +11,7 @@ function Product(name, fileLoc) {
   }
   productArray.push(this);
 }
-
+//objects
 var shark = new Product('shark', 'img/shark.png');
 var pen = new Product('pen','img/pens.png');
 var banana = new Product('banana','img/banana.png');
@@ -28,25 +27,18 @@ var water = new Product('water-can','img/water.png');
 var wine = new Product('wine-glass','img/wine.png');
 var chair = new Product('chair','img/chair.png');
 
-
-
-
 var img1 = document.getElementById('productInsert1');
 var img2 = document.getElementById('productInsert2');
 var img3 = document.getElementById('productInsert3')
 var totalClicks = 0;
-
-// var timesDisplayed = 0;
 var rand1;
 var rand2;
 var rand3;
-
 //generate a random image from array
 function generateRandomImage() {
   return Math.floor((Math.random() * productArray.length));
 }
-
- //constuctors to generate 3 random images
+//constuctors to generate 3 random images
 function random() {
   rand1 = generateRandomImage();
   console.log(rand1 + "This is rand1");
@@ -70,12 +62,10 @@ function random() {
  }
 //call the random image
 random();
-
 //event listeners for all 3 displays
 productInsert1.addEventListener('click', handleClickOnOne);
 productInsert2.addEventListener('click', handleClickOnTwo);
 productInsert3.addEventListener('click', handleClickOnThree);
-
 //event handlers to create event for when image is clicked on
 function handleClickOnOne(event) {
   totalClicks += 1;
@@ -95,7 +85,6 @@ function handleClickOnThree(event) {
   checkForButton();
   random();
 }
-
 //check for button after 15 clicks
 var showResultButton = document.getElementById('showResultButton');
   function checkForButton() {
@@ -106,7 +95,6 @@ var showResultButton = document.getElementById('showResultButton');
     button.style.visibility = 'visible';
   }
 }
-
 // BUTTON FUNCTION
 function checkForButton() {
   if(totalClicks < productArray.length) {
@@ -115,23 +103,15 @@ function checkForButton() {
   else {
     document.getElementById('button').style.visibility = 'visible';
   }
-
 }
-
 button.addEventListener('click', handleButtonClick);
 function handleButtonClick() {
   button.textContent = 'Here are the results';
   dataset1();
   chart1();
 }
-
 checkForButton();
-
-
-
-
-//graph
-
+//chart
 var label = ['shark', 'chair', 'pen', 'banana', 'bag', 'boots', 'cthulhu', 'dragon', 'sweep', 'scissors', 'unicorn', 'usb', 'water', 'wine'];
 var percentageChart = [];
 function dataset1() {
@@ -139,9 +119,6 @@ function dataset1() {
     percentageChart[i] = productArray[i].percentClicked();
   }
 }
-
-
-
 function chart1(){
   var data = {
     labels: label,
@@ -161,6 +138,4 @@ function chart1(){
  var title1 = document.getElementById('table1')
  title1.textContent = 'Percentage of Clicks By Product';
  userDataTable.appendChild(table1);
-
-
 }
