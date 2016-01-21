@@ -135,7 +135,11 @@ function chart1(){
  }
  var ctx = document.getElementById('userDataTable').getContext('2d');
  var myBarChart = new Chart(ctx).Bar(data);
- var title1 = document.getElementById('table1')
- title1.textContent = 'Percentage of Clicks By Product';
- userDataTable.appendChild(table1);
+ //clear local storage button
+ var clearLs = documet.getElementById('lsClear');
+ var handleLsClear = function () {
+   localStorage.clear();
+ };
+ //event listeners for clear ls
+ clearLS.addEventListener('click', handleLsClear);
 }
