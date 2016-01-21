@@ -148,9 +148,9 @@ function chart1(){
     datasets: [
       {
        label: "My First dataset",
-       fillColor: "rgba(220,220,220,0.5)",
-       strokeColor: "rgba(220,220,220,0.8)",
-       highlightFill: "rgba(220,220,220,0.75)",
+       fillColor: "rgba(63, 84, 191,0.8)",
+       strokeColor: "rgba(18, 19, 22,0.9)",
+       highlightFill: "rgba(18, 19, 22,0.9)",
        highlightStroke: "rgba(220,220,220,1)",
        data: percentageChart
      }
@@ -158,4 +158,9 @@ function chart1(){
  }
  var ctx = document.getElementById('userDataTable').getContext('2d');
  var myBarChart = new Chart(ctx).Bar(data);
+ var title1 = document.getElementById('table1')
+ title1.textContent = 'Percentage of Clicks By Product';
+ userDataTable.appendChild(table1);
+
+
 }
