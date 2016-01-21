@@ -3,7 +3,6 @@
   <head>
     <meta charset="utf-8">
     <title>BusMall</title>
-    <!-- <link href='https://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'> -->
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/skeleton.css">
     <link rel="stylesheet" href="css/style.css">
@@ -19,8 +18,11 @@
       </header>
       <h2>Welcome, Focus Group Participants! </h2>
       <h3>Please read the instructions below before starting the survey</h3>
-    </section>
-    <!-- IMAGES -->
+      <section class="instructions">
+        <h4>Instructions</h4>
+        <p><stong>The purpose of this study is to determine which products you are most likely to purchase. You will get 3 products to choose from in 15 sets. Once an image is clicked on, another set of products will appear. When all the 15 rounds are completed, a "Click Here For The Results" button will appear at the bottom of the image set. After you push the button, a chart will appear with the results on how you voted.</stong></p>
+      </section>
+      </section>
     <section class = "pics">
       <article class = "productInsert1">
         <img id = "productInsert1">
@@ -32,18 +34,15 @@
         <img id = "productInsert3">
       </article>
     </section>
-    <!--  BUTTON-->
     <section class = "results">
       <button id ="button" class = "button">Click Here for Results</button>
     </section>
-    <!-- CHART -->
     <section class="chart1">
-      <article class="title">
+      <article class="title1" id="title1">
         <canvas id="userDataTable" width="300" height="300"></canvas>
       </article>
     </section>
-
+    <footer> &copy 2016 BusMall Worldwide Enterprises</footer>
     <script src="js/app.js"></script>
-
   </body>
 </html>
