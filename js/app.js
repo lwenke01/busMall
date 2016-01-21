@@ -6,11 +6,10 @@ function Product(name, fileLoc) {
   this.fileLoc = fileLoc;
   this.timesClicked = 0;
   this.timesDisplayed = 0;
-  this.percentClicked = function() {
-  return(this.timesClicked / this.timesDisplayed).toFixed(2) * 100;
-  }
+  this.percentClicked = 0;
   productArray.push(this);
 }
+
 //objects
 var shark = new Product('shark', 'img/shark.png');
 var pen = new Product('pen','img/pens.png');
@@ -41,7 +40,7 @@ function generateRandomImage() {
 //constuctors to generate 3 random images
 function random() {
   rand1 = generateRandomImage();
-  console.log(rand1 + "This is rand1");
+  // console.log(rand1 + "This is rand1");
   img1.src = productArray[rand1].fileLoc;
   productArray[rand1].timesDisplayed += 1;
 
@@ -51,17 +50,16 @@ function random() {
   }
   img2.src = productArray[rand2].fileLoc;
   productArray[rand2].timesDisplayed += 1;
-  console.log(rand2 + "This is rand2");
+  // console.log(rand2 + "This is rand2");
   rand3 = generateRandomImage();
   while(rand1 === rand3 || rand2 === rand3) {
     rand3 = generateRandomImage();
   }
   img3.src = productArray[rand3].fileLoc;
   productArray[rand3].timesDisplayed += 1;
-  console.log(rand3 + "This is rand3");
+  // console.log(rand3 + "This is rand3");
  }
 //call the random image
-random();
 //event listeners for all 3 displays
 productInsert1.addEventListener('click', handleClickOnOne);
 productInsert2.addEventListener('click', handleClickOnTwo);
@@ -105,22 +103,52 @@ function checkForButton() {
   }
 }
 button.addEventListener('click', handleButtonClick);
+
+function calculatePercent (obj) {
+  return obj.percentClicked = (obj.timesClicked / obj.timesDisplayed).toFixed(2) * 100;
+};
+
 function handleButtonClick() {
+  //var index = parseInt(evt.target.id);
+  //console.log(index);
+
+  localStorage.setItem('chartPersist', JSON.stringify(productArray));
+
   button.textContent = 'Here are the results';
+
   dataset1();
   chart1();
 }
-checkForButton();
+function clearLsArray() {
+
+
+  // productArray = localStorage.getItem('chartPersist');
+  if (localStorage.chartPersist) {
+    productArray = [];
+    productArray = JSON.parse(localStorage.chartPersist);
+  } else {
+    console.log('Local storage empty!! Initializing!');
+    localStorage.setItem('chartPersist', JSON.stringify(productArray));
+  }
+};
+
+// Persist data in HTML5 Local Storage
+
 //chart
 var label = ['shark', 'chair', 'pen', 'banana', 'bag', 'boots', 'cthulhu', 'dragon', 'sweep', 'scissors', 'unicorn', 'usb', 'water', 'wine'];
+
 var percentageChart = [];
 function dataset1() {
-  for(var i = 0; i <productArray.length; i++) {
-    percentageChart[i] = productArray[i].percentClicked();
+  for(var i = 0; i < productArray.length; i++) {
+    console.log(productArray[i]);
+    calculatePercent(productArray[i]);
+    percentageChart[i] = productArray[i].percentClicked;
   }
 }
+
+var data;
 function chart1(){
-  var data = {
+  data = {
     labels: label,
     datasets: [
       {
@@ -135,11 +163,12 @@ function chart1(){
  }
  var ctx = document.getElementById('userDataTable').getContext('2d');
  var myBarChart = new Chart(ctx).Bar(data);
- //clear local storage button
- var clearLs = documet.getElementById('lsClear');
- var handleLsClear = function () {
-   localStorage.clear();
- };
- //event listeners for clear ls
- clearLS.addEventListener('click', handleLsClear);
 }
+
+
+//clear local storage button
+var clearLS = document.getElementById('lsClear');
+
+clearLsArray();
+random();
+checkForButton();
