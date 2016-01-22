@@ -28,7 +28,7 @@ var chair = new Product('chair','img/chair.png');
 
 var img1 = document.getElementById('productInsert1');
 var img2 = document.getElementById('productInsert2');
-var img3 = document.getElementById('productInsert3')
+var img3 = document.getElementById('productInsert3');
 var totalClicks = 0;
 var rand1;
 var rand2;
@@ -120,9 +120,7 @@ function handleButtonClick() {
   chart1();
 }
 function clearLsArray() {
-
-
-  // productArray = localStorage.getItem('chartPersist');
+// productArray = localStorage.getItem('chartPersist');
   if (localStorage.chartPersist) {
     productArray = [];
     productArray = JSON.parse(localStorage.chartPersist);
@@ -169,6 +167,6 @@ function chart1(){
 //clear local storage button
 var clearLS = document.getElementById('lsClear');
 
-clearLsArray();
+// clearLsArray();
 random();
 checkForButton();
