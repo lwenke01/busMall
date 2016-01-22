@@ -120,7 +120,13 @@ function handleButtonClick() {
   chart1();
 }
 function clearLsArray() {
+<<<<<<< HEAD
 // productArray = localStorage.getItem('chartPersist');
+=======
+
+
+  // productArray = localStorage.getItem('chartPersist');
+>>>>>>> master
   if (localStorage.chartPersist) {
     productArray = [];
     productArray = JSON.parse(localStorage.chartPersist);
@@ -167,6 +173,10 @@ function chart1(){
 //clear local storage button
 var clearLS = document.getElementById('lsClear');
 
+<<<<<<< HEAD
 // clearLsArray();
+=======
+clearLsArray();
+>>>>>>> master
 random();
 checkForButton();
